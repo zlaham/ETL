@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" width="100%" role="img">
+  <title>Session 4 Gold dimensional model</title>
+  <desc>Silver sales and a change feed become versioned dimensions, two facts, a suspense hold, and marts.</desc>
+  <rect width="1280" height="760" fill="#f6f3ee"/>
+  <text x="40" y="46" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="28" font-weight="700">Gold is a model with a memory</text>
+  <text x="40" y="74" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="16">Session 4. Silver stays the trusted input. Gold publishes keys, versions, facts, and marts other teams can query.</text>
+
+  <g font-family="Segoe UI, Calibri, Arial, sans-serif">
+    <rect x="40" y="108" width="250" height="92" rx="8" fill="#e7eef6" stroke="#243e73" stroke-width="2"/>
+    <text x="56" y="136" fill="#243e73" font-size="13" font-weight="700">SILVER SALES</text>
+    <text x="56" y="160" fill="#1b2838" font-size="15">11 lines - USD 3,779.50</text>
+    <text x="56" y="182" fill="#526070" font-size="13">Current, valid, recognized</text>
+
+    <rect x="314" y="108" width="230" height="92" rx="8" fill="#e7eef6" stroke="#243e73" stroke-width="2"/>
+    <text x="330" y="136" fill="#243e73" font-size="13" font-weight="700">SILVER PARTIES</text>
+    <text x="330" y="160" fill="#1b2838" font-size="15">Customers and products</text>
+    <text x="330" y="182" fill="#526070" font-size="13">One current version each</text>
+
+    <rect x="568" y="108" width="300" height="92" rx="8" fill="#f8f1e4" stroke="#8a5a12" stroke-width="2"/>
+    <text x="584" y="136" fill="#8a5a12" font-size="13" font-weight="700">CHANGE FEED</text>
+    <text x="584" y="160" fill="#1b2838" font-size="15">Name, segment, category, return</text>
+    <text x="584" y="182" fill="#526070" font-size="13">Arrives after the Silver publish</text>
+
+    <rect x="892" y="108" width="348" height="92" rx="8" fill="#f8e8ea" stroke="#8f2d3a" stroke-width="2"/>
+    <text x="908" y="136" fill="#8f2d3a" font-size="13" font-weight="700">LATE LINE</text>
+    <text x="908" y="160" fill="#1b2838" font-size="15">C109 - USD 749.00</text>
+    <text x="908" y="182" fill="#526070" font-size="13">Held. Not added to the KPI.</text>
+
+    <rect x="360" y="246" width="560" height="64" rx="8" fill="#1b2838"/>
+    <text x="380" y="274" fill="#f6f3ee" font-size="16" font-weight="700">surrogate_registry</text>
+    <text x="380" y="294" fill="#d5dde6" font-size="14">Allocate the next key. Never renumber a key that was stored.</text>
+
+    <rect x="40" y="356" width="360" height="110" rx="8" fill="#e5f4ec" stroke="#1e7a4d" stroke-width="2"/>
+    <text x="56" y="384" fill="#1e7a4d" font-size="13" font-weight="700">dim_customer</text>
+    <text x="56" y="408" fill="#1b2838" font-size="15">One row per version</text>
+    <text x="56" y="430" fill="#526070" font-size="14">Type 1 corrects the name in place.</text>
+    <text x="56" y="450" fill="#526070" font-size="14">Type 2 keeps Consumer and Business.</text>
+
+    <rect x="424" y="356" width="390" height="110" rx="8" fill="#e5f4ec" stroke="#1e7a4d" stroke-width="2"/>
+    <text x="440" y="384" fill="#1e7a4d" font-size="13" font-weight="700">dim_product</text>
+    <text x="440" y="408" fill="#1b2838" font-size="15">Category history on P104</text>
+    <text x="440" y="430" fill="#526070" font-size="14">Through 17 Oct: Electronics Accessories.</text>
+    <text x="440" y="450" fill="#526070" font-size="14">From 18 Oct: Power. Old sales stay put.</text>
+
+    <rect x="838" y="356" width="402" height="110" rx="8" fill="#e5f4ec" stroke="#1e7a4d" stroke-width="2"/>
+    <text x="854" y="384" fill="#1e7a4d" font-size="13" font-weight="700">dim_date</text>
+    <text x="854" y="408" fill="#1b2838" font-size="15">October 2026, including quiet days</text>
+    <text x="854" y="430" fill="#526070" font-size="14">Order date and return date are two roles.</text>
+    <text x="854" y="450" fill="#526070" font-size="14">The key is the UTC calendar date.</text>
+
+    <rect x="40" y="514" width="390" height="100" rx="8" fill="#e7eef6" stroke="#243e73" stroke-width="2"/>
+    <text x="56" y="542" fill="#243e73" font-size="13" font-weight="700">fct_sales_order_lines</text>
+    <text x="56" y="566" fill="#1b2838" font-size="15">Grain: one valid order line</text>
+    <text x="56" y="590" fill="#526070" font-size="14">Keys are the versions in effect that day.</text>
+
+    <rect x="454" y="514" width="360" height="100" rx="8" fill="#e7eef6" stroke="#243e73" stroke-width="2"/>
+    <text x="470" y="542" fill="#243e73" font-size="13" font-weight="700">fct_returns</text>
+    <text x="470" y="566" fill="#1b2838" font-size="15">A return does not edit the sale</text>
+    <text x="470" y="590" fill="#526070" font-size="14">Same dimensions. Its own date role.</text>
+
+    <rect x="838" y="514" width="402" height="100" rx="8" fill="#f8e8ea" stroke="#8f2d3a" stroke-width="2"/>
+    <text x="854" y="542" fill="#8f2d3a" font-size="13" font-weight="700">gold_suspense</text>
+    <text x="854" y="566" fill="#1b2838" font-size="15">Unresolved lines wait here</text>
+    <text x="854" y="590" fill="#526070" font-size="14">Unknown member ` published revenue.</text>
+
+    <rect x="40" y="656" width="804" height="68" rx="8" fill="#1e7a4d"/>
+    <text x="56" y="686" fill="#f6f3ee" font-size="16" font-weight="700">mart_sales_by_day_category  -  kpi_commercial</text>
+    <text x="56" y="708" fill="#d9f2e4" font-size="14">Built from the facts. Gross 3,779.50. Returns 12.50. Net 3,767.00. The mart is not allowed to invent a second total.</text>
+
+    <line x1="165" y1="200" x2="560" y2="246" stroke="#8aa0b8" stroke-width="2"/>
+    <line x1="429" y1="200" x2="620" y2="246" stroke="#8aa0b8" stroke-width="2"/>
+    <line x1="718" y1="200" x2="700" y2="246" stroke="#c4a574" stroke-width="2"/>
+    <line x1="220" y1="310" x2="220" y2="356" stroke="#1e7a4d" stroke-width="2"/>
+    <line x1="619" y1="310" x2="619" y2="356" stroke="#1e7a4d" stroke-width="2"/>
+    <line x1="1039" y1="310" x2="1039" y2="356" stroke="#1e7a4d" stroke-width="2"/>
+    <line x1="220" y1="466" x2="220" y2="514" stroke="#243e73" stroke-width="2"/>
+    <line x1="619" y1="466" x2="634" y2="514" stroke="#243e73" stroke-width="2"/>
+    <line x1="1039" y1="466" x2="1039" y2="514" stroke="#8f2d3a" stroke-width="2"/>
+    <line x1="235" y1="614" x2="360" y2="656" stroke="#1e7a4d" stroke-width="2"/>
+    <line x1="634" y1="614" x2="520" y2="656" stroke="#1e7a4d" stroke-width="2"/>
+  </g>
+</svg>

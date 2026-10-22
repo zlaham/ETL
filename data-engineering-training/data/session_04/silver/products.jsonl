@@ -1,0 +1,10 @@
+{"product_id":"P101","sku":"IP15-128-BLK","product_name":"Apple iPhone 15 128GB Black","category":"Smartphones","subcategory":"Mobile Phones","enrichment_method":"rules","source_updated_at":"2026-10-01"}
+{"product_id":"P102","sku":"IP15-128-ALT","product_name":"iPhone15 - Black - 128 GB","category":"Smartphones","subcategory":"Mobile Phones","enrichment_method":"rules","source_updated_at":"2026-10-01"}
+{"product_id":"P103","sku":"SM-S928","product_name":"Samsung Galaxy S24 Ultra","category":"Smartphones","subcategory":"Flagship Phones","enrichment_method":"manual","source_updated_at":"2026-10-01"}
+{"product_id":"P104","sku":"USBC-20W","product_name":"USB-C Fast Charging Adapter 20W","category":"Electronics Accessories","subcategory":"Chargers","enrichment_method":"llm","source_updated_at":"2026-10-01"}
+{"product_id":"P105","sku":"ALV-LOT-250","product_name":"Premium Moisturizing Aloe Vera Lotion","category":"Personal Care","subcategory":"Skin Care","enrichment_method":"llm","source_updated_at":"2026-10-01"}
+{"product_id":"P106","sku":"BT-EB-01","product_name":"Wireless Bluetooth Earbuds","category":"Electronics Accessories","subcategory":"Audio","enrichment_method":"llm","source_updated_at":"2026-10-01"}
+{"product_id":"P107","sku":"AF-4L","product_name":"Compact 4-Liter Digital Air Fryer","category":"Home Appliances","subcategory":"Kitchen","enrichment_method":"llm","source_updated_at":"2026-10-01"}
+{"product_id":"P108","sku":"CASE-SIL","product_name":"Silicone Protective Case for Mobile Handset","category":"Electronics Accessories","subcategory":"Cases","enrichment_method":"llm","source_updated_at":"2026-10-01"}
+{"product_id":"P109","sku":"SPF50-MIN","product_name":"Daily Mineral Face Sunscreen SPF 50","category":"Personal Care","subcategory":"Skin Care","enrichment_method":"llm","source_updated_at":"2026-10-01"}
+{"product_id":"P110","sku":"NK-000","product_name":null,"category":"Unclassified","subcategory":null,"enrichment_method":"fallback","source_updated_at":"2026-10-01"}

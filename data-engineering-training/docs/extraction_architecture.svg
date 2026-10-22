@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1160" width="100%" role="img">
+  <title>Orders extraction into Bronze</title>
+  <desc>Operational application, Orders API, extraction service, and Bronze storage. Silver and Gold are later sessions.</desc>
+  <rect width="1440" height="1160" fill="#f6f3ee"/>
+  <text x="40" y="46" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="28" font-weight="700">Orders extraction into the Bronze layer</text>
+  <text x="40" y="74" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="16">Session 2. The service that pulls data and the layer that stores it are different components.</text>
+
+  <rect x="1088" y="24" width="312" height="78" rx="10" fill="#fff" stroke="#d9d3c7"/>
+  <rect x="1106" y="40" width="18" height="14" rx="2" fill="#163a66"/>
+  <text x="1132" y="52" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">Runs code</text>
+  <rect x="1228" y="40" width="18" height="14" rx="2" fill="#f8efe8" stroke="#8a4b2f" stroke-width="2"/>
+  <text x="1254" y="52" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">Stores data</text>
+  <rect x="1106" y="68" width="18" height="14" rx="2" fill="#f7f8f9" stroke="#5c6770" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text x="1132" y="80" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">Later session</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <rect x="290" y="118" width="860" height="86" rx="14" fill="#243e73"/>
+  <circle cx="322" cy="146" r="14" fill="#f6f3ee"/>
+  <text x="322" y="151" text-anchor="middle" fill="#243e73" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14" font-weight="700">1</text>
+  <text x="348" y="152" fill="#ffffff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="18" font-weight="700">OPERATIONAL APPLICATION</text>
+  <text x="348" y="178" fill="#d5e2ea" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15">System of record. Stakeholders will not allow analytical queries on this database.</text>
+
+  <line x1="720" y1="204" x2="720" y2="232" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="734" y="224" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">the supported read path</text>
+
+  <rect x="290" y="232" width="860" height="132" rx="14" fill="#0f6b66"/>
+  <circle cx="322" cy="262" r="14" fill="#f6f3ee"/>
+  <text x="322" y="267" text-anchor="middle" fill="#0f6b66" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14" font-weight="700">2</text>
+  <text x="348" y="268" fill="#ffffff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="18" font-weight="700">ORDERS REST API</text>
+  <text x="348" y="294" fill="#e7f6f4" font-family="Consolas, Courier New, monospace" font-size="15">GET /api/orders</text>
+  <text x="348" y="320" fill="#ffffff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15">page    page_size    snapshot_id    updated_after    after_id</text>
+  <text x="348" y="344" fill="#d7f3ef" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">May return a partial page, an empty page, HTTP 429, or HTTP 500.</text>
+
+  <line x1="720" y1="364" x2="720" y2="394" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="734" y="386" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">HTTP GET, one page at a time</text>
+
+  <rect x="140" y="394" width="1160" height="262" rx="16" fill="#163a66"/>
+  <circle cx="172" cy="426" r="14" fill="#f6f3ee"/>
+  <text x="172" y="431" text-anchor="middle" fill="#163a66" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14" font-weight="700">3</text>
+  <text x="198" y="432" fill="#ffffff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="18" font-weight="700">DATA EXTRACTION SERVICE</text>
+  <text x="560" y="432" fill="#9fd0c8" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14" font-weight="700">RUNS CODE</text>
+  <text x="198" y="456" fill="#d5e2ea" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">This session's modules. Pagination, retries, and checkpoints live here. Cleaning does not.</text>
+
+  <rect x="160" y="474" width="360" height="162" rx="10" fill="#f4f8fb"/>
+  <rect x="160" y="474" width="8" height="162" rx="4" fill="#0f6b66"/>
+  <text x="184" y="502" fill="#0f6b66" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">PAGINATION</text>
+  <text x="184" y="528" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Full load: snapshot ordered by order_id.</text>
+  <text x="184" y="552" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Incremental: keyset cursor</text>
+  <text x="184" y="572" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">(updated_at, order_id).</text>
+  <text x="184" y="600" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Live offset pages can skip rows.</text>
+
+  <rect x="540" y="474" width="360" height="162" rx="10" fill="#f4f8fb"/>
+  <rect x="540" y="474" width="8" height="162" rx="4" fill="#8f2d3a"/>
+  <text x="564" y="502" fill="#8f2d3a" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">RETRIES</text>
+  <text x="564" y="528" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">HTTP 500: exponential backoff.</text>
+  <text x="564" y="552" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">HTTP 429: honor Retry-After.</text>
+  <text x="564" y="576" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Do not add concurrency.</text>
+  <text x="564" y="600" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Attempts are capped.</text>
+
+  <rect x="920" y="474" width="360" height="162" rx="10" fill="#f4f8fb"/>
+  <rect x="920" y="474" width="8" height="162" rx="4" fill="#8a5a12"/>
+  <text x="944" y="502" fill="#8a5a12" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">CHECKPOINTS</text>
+  <text x="944" y="528" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Advance only after Bronze fsync.</text>
+  <text x="944" y="552" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">A crash resumes from that page.</text>
+  <text x="944" y="576" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">The replayed page can duplicate.</text>
+  <text x="944" y="600" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Delivery is at-least-once.</text>
+
+  <line x1="720" y1="656" x2="720" y2="686" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="734" y="678" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">append raw JSONL, then fsync</text>
+
+  <rect x="290" y="686" width="860" height="128" rx="14" fill="#f8efe8" stroke="#8a4b2f" stroke-width="3"/>
+  <circle cx="322" cy="718" r="14" fill="#8a4b2f"/>
+  <text x="322" y="723" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14" font-weight="700">4</text>
+  <text x="348" y="724" fill="#8a4b2f" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="18" font-weight="700">BRONZE STORAGE</text>
+  <text x="620" y="724" fill="#8a4b2f" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14" font-weight="700">STORES DATA</text>
+  <text x="348" y="750" fill="#3d342c" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15">Logical data layer. Raw JSONL files. Separate from the service above.</text>
+  <text x="348" y="774" fill="#3d342c" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Envelope: source_system, ingested_at, run_id, source_record_id, payload.</text>
+  <text x="348" y="796" fill="#3d342c" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Nulls, odd statuses, and wrong amounts stay inside the payload.</text>
+
+  <line x1="720" y1="814" x2="720" y2="842" stroke="#5c6770" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="734" y="834" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">later sessions</text>
+
+  <rect x="290" y="842" width="410" height="78" rx="12" fill="#f7f8f9" stroke="#5c6770" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text x="312" y="874" fill="#5c6770" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="16" font-weight="700">SILVER - future session</text>
+  <text x="312" y="898" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Validate, deduplicate, conform.</text>
+
+  <rect x="740" y="842" width="410" height="78" rx="12" fill="#fbf8f1" stroke="#8d6a1f" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text x="762" y="874" fill="#8d6a1f" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="16" font-weight="700">GOLD - future session</text>
+  <text x="762" y="898" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Revenue, volume, customer behavior.</text>
+
+  <rect x="36" y="948" width="440" height="176" rx="12" fill="#ffffff" stroke="#d9d3c7"/>
+  <text x="56" y="978" fill="#0f6b66" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">SOURCE API CONTRACT</text>
+  <text x="56" y="1006" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Identity: order_id.</text>
+  <text x="56" y="1030" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Cursor: (updated_at, order_id).</text>
+  <text x="56" y="1054" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Full pages are stable only inside a snapshot.</text>
+  <text x="56" y="1078" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">No delete feed. No exactly-once promise.</text>
+  <text x="56" y="1102" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Empty result is HTTP 200 with data: [].</text>
+
+  <rect x="500" y="948" width="440" height="176" rx="12" fill="#ffffff" stroke="#d9d3c7"/>
+  <text x="520" y="978" fill="#8f2d3a" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">FAILURE HANDLING</text>
+  <text x="520" y="1006" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Retry 429 and 500. Stop after the cap.</text>
+  <text x="520" y="1030" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">A 429 is a signal to slow down.</text>
+  <text x="520" y="1054" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Checkpoint never moves past durable Bronze.</text>
+  <text x="520" y="1078" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Resume can append a page twice.</text>
+  <text x="520" y="1102" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Silver must dedupe before Gold sums revenue.</text>
+
+  <rect x="964" y="948" width="440" height="176" rx="12" fill="#ffffff" stroke="#d9d3c7"/>
+  <text x="984" y="978" fill="#163a66" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">METADATA AND EXECUTION LOGS</text>
+  <text x="984" y="1006" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Each attempt logs page, status, and delay.</text>
+  <text x="984" y="1030" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Checkpoint file: last durable page.</text>
+  <text x="984" y="1054" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Watermark file: incremental cursor.</text>
+  <text x="984" y="1078" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Bronze envelope: who, when, which run.</text>
+  <text x="984" y="1102" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Logs explain the run. They are not the data.</text>
+</svg>

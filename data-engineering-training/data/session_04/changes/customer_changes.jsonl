@@ -1,0 +1,2 @@
+{"customer_id":"C100","change_type":"type1","attribute":"customer_name","new_value":"John A. Smith","effective_from":"2026-10-18","reason":"legal_name_correction"}
+{"customer_id":"C101","change_type":"type2","attribute":"customer_segment","new_value":"Business","effective_from":"2026-10-17","reason":"account_upgraded"}

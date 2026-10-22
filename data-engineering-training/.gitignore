@@ -1,0 +1,11 @@
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+data/bronze/**/*.jsonl
+data/state/**/*.json
+data/state/**/*.tmp
+data/source/*.json
+artifacts/*.duckdb
+artifacts/*.duckdb.wal

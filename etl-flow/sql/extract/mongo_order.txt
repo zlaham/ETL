@@ -1,0 +1,6 @@
+db.order_events.find({
+  $or: [
+    { updated_at: { $gt: watermarkTime } },
+    { updated_at: watermarkTime, order_id: { $gt: watermarkKey } }
+  ]
+}).sort({ updated_at: 1, order_id: 1 }).limit(10)

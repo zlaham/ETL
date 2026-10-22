@@ -1,0 +1,85 @@
+{
+  "label": "Precomputed LLM output fixture \u2014 no live model inference.",
+  "model_version": "demo-model-v1",
+  "prompt_version": "product-classifier-v1",
+  "taxonomy_version": "2026-10",
+  "classifications": [
+    {
+      "product_id": "P103",
+      "category": "Smartphones",
+      "subcategory": "Mobile Phones",
+      "needs_review": false,
+      "demo_role": "precedence_example"
+    },
+    {
+      "product_id": "P104",
+      "category": "Electronics Accessories",
+      "subcategory": "Chargers",
+      "needs_review": false,
+      "demo_role": "model_proposal"
+    },
+    {
+      "product_id": "P105",
+      "category": "Personal Care",
+      "subcategory": "Skin Care",
+      "needs_review": false,
+      "demo_role": "model_proposal"
+    },
+    {
+      "product_id": "P106",
+      "category": "Electronics Accessories",
+      "subcategory": "Audio",
+      "needs_review": false,
+      "demo_role": "model_proposal"
+    },
+    {
+      "product_id": "P107",
+      "category": "Home Appliances",
+      "subcategory": "Kitchen",
+      "needs_review": false,
+      "demo_role": "model_proposal"
+    },
+    {
+      "product_id": "P108",
+      "category": "Electronics Accessories",
+      "subcategory": "Cases",
+      "needs_review": false,
+      "demo_role": "model_proposal"
+    },
+    {
+      "product_id": "P109",
+      "category": "Personal Care",
+      "subcategory": "Skin Care",
+      "needs_review": false,
+      "demo_role": "model_proposal"
+    },
+    {
+      "product_id": "P110",
+      "category": "Wearables",
+      "subcategory": "Watches",
+      "needs_review": false,
+      "demo_role": "model_proposal"
+    },
+    {
+      "product_id": "P110",
+      "category": "Home Appliances",
+      "subcategory": "Kitchen",
+      "needs_review": true,
+      "demo_role": "injected_defect"
+    },
+    {
+      "product_id": "P999",
+      "category": "Other",
+      "subcategory": "General",
+      "needs_review": false,
+      "demo_role": "injected_defect"
+    },
+    {
+      "product_id": null,
+      "category": "Smartphones",
+      "subcategory": "Mobile Phones",
+      "needs_review": false,
+      "demo_role": "injected_defect"
+    }
+  ]
+}

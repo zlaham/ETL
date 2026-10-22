@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 980" width="100%" role="img">
+  <title>Application queries versus an ingestion landing</title>
+  <desc>Left: analytics reads operational databases. Right: ingestion copies raw orders into an append-only landing.</desc>
+  <rect width="1440" height="980" fill="#f6f3ee"/>
+  <text x="40" y="46" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="28" font-weight="700">Where the copy of the orders should land</text>
+  <text x="40" y="74" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="16">Session 1. Ingestion copies the source. It does not interpret it.</text>
+
+  <rect x="36" y="100" width="660" height="560" rx="16" fill="#fff" stroke="#e4c7c7" stroke-width="2"/>
+  <text x="56" y="136" fill="#8f2d3a" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="18" font-weight="700">APPLICATION-CENTRIC</text>
+  <text x="56" y="162" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Every consumer reads the database that takes the payment.</text>
+
+  <rect x="70" y="190" width="250" height="70" rx="10" fill="#243e73"/>
+  <text x="195" y="220" text-anchor="middle" fill="#fff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">Checkout service</text>
+  <text x="195" y="242" text-anchor="middle" fill="#d5e2ea" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">owns the orders schema</text>
+
+  <rect x="390" y="190" width="250" height="70" rx="10" fill="#243e73"/>
+  <text x="515" y="220" text-anchor="middle" fill="#fff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">Customer service</text>
+  <text x="515" y="242" text-anchor="middle" fill="#d5e2ea" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">owns the customer schema</text>
+
+  <rect x="70" y="300" width="250" height="78" rx="10" fill="#f8efe8" stroke="#8a4b2f" stroke-width="2"/>
+  <text x="195" y="330" text-anchor="middle" fill="#8a4b2f" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">Orders database</text>
+  <text x="195" y="354" text-anchor="middle" fill="#3d342c" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">current row only</text>
+
+  <rect x="390" y="300" width="250" height="78" rx="10" fill="#f8efe8" stroke="#8a4b2f" stroke-width="2"/>
+  <text x="515" y="330" text-anchor="middle" fill="#8a4b2f" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">Customer database</text>
+  <text x="515" y="354" text-anchor="middle" fill="#3d342c" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">current row only</text>
+
+  <rect x="150" y="420" width="420" height="86" rx="10" fill="#8f2d3a"/>
+  <text x="360" y="452" text-anchor="middle" fill="#fff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">Finance and product query both databases</text>
+  <text x="360" y="478" text-anchor="middle" fill="#f8d7db" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="13">each team keeps a private copy of the rules</text>
+
+  <text x="56" y="546" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">An update replaces the row. The previous status is gone.</text>
+  <text x="56" y="572" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">A read replica still couples you to the application schema.</text>
+  <text x="56" y="598" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">There is no landed copy, so there is nothing to replay.</text>
+  <text x="56" y="632" fill="#8f2d3a" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14" font-weight="700">The application is the integration layer.</text>
+
+  <rect x="744" y="100" width="660" height="560" rx="16" fill="#fff" stroke="#d5e2ea" stroke-width="2"/>
+  <text x="764" y="136" fill="#163a66" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="18" font-weight="700">INGESTION PATH</text>
+  <text x="764" y="162" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Copy the source into a landing. Leave the meaning for later.</text>
+
+  <rect x="774" y="190" width="600" height="64" rx="10" fill="#243e73"/>
+  <text x="1074" y="228" text-anchor="middle" fill="#fff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">Operational applications stay the system of record</text>
+
+  <rect x="774" y="286" width="600" height="92" rx="10" fill="#163a66"/>
+  <text x="1074" y="322" text-anchor="middle" fill="#fff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="16" font-weight="700">INGESTION</text>
+  <text x="1074" y="348" text-anchor="middle" fill="#d5e2ea" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Extract from the API. Load the document you received.</text>
+
+  <rect x="774" y="410" width="600" height="110" rx="10" fill="#8a4b2f"/>
+  <text x="1074" y="448" text-anchor="middle" fill="#fff" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="16" font-weight="700">LANDING  -  raw and append-only</text>
+  <text x="1074" y="474" text-anchor="middle" fill="#f8efe8" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">source_system, ingested_at, run_id, payload</text>
+  <text x="1074" y="498" text-anchor="middle" fill="#f8efe8" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">Nulls and odd statuses stay inside the payload</text>
+
+  <text x="774" y="560" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">ETL would transform before this box and discard the payload.</text>
+  <text x="774" y="586" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14">ELT loads this box first. Interpretation is a later job.</text>
+  <text x="774" y="620" fill="#163a66" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="14" font-weight="700">This hour ends at the landing.</text>
+
+  <rect x="36" y="688" width="1368" height="256" rx="14" fill="#ffffff" stroke="#d9d3c7"/>
+  <text x="56" y="726" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="16" font-weight="700">What the ingestion layer owes you</text>
+  <text x="56" y="764" fill="#8a4b2f" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">Raw payload</text>
+  <text x="230" y="764" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15">The bytes the source sent, including the fields you do not like yet.</text>
+  <text x="56" y="800" fill="#163a66" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">Run metadata</text>
+  <text x="230" y="800" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15">Which source, which run, and when the platform accepted the row.</text>
+  <text x="56" y="836" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">Completeness</text>
+  <text x="230" y="836" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15">How many source records you intended to copy, and how many landed.</text>
+  <text x="56" y="872" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15" font-weight="700">Replay</text>
+  <text x="230" y="872" fill="#1b2838" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15">A later rule can reread the landing. It cannot reread a row ETL already replaced.</text>
+  <text x="56" y="908" fill="#526070" font-family="Segoe UI, Calibri, Arial, sans-serif" font-size="15">Cleaning, dedupe, and business totals are downstream of this landing. They are not this session.</text>
+</svg>

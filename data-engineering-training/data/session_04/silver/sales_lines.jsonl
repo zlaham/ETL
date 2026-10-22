@@ -1,0 +1,11 @@
+{"order_line_id":"OL-1001-1","order_id":"ORD-1001","customer_id":"C100","product_id":"P101","quantity":1,"unit_price":"749.00","gross_amount":"749.00","order_date":"2026-10-15","currency":"USD"}
+{"order_line_id":"OL-1002-1","order_id":"ORD-1002","customer_id":"C101","product_id":"P103","quantity":1,"unit_price":"1199.00","gross_amount":"1199.00","order_date":"2026-10-15","currency":"USD"}
+{"order_line_id":"OL-1003-1","order_id":"ORD-1003","customer_id":"C102","product_id":"P104","quantity":2,"unit_price":"19.00","gross_amount":"38.00","order_date":"2026-10-15","currency":"USD"}
+{"order_line_id":"OL-1003-2","order_id":"ORD-1003","customer_id":"C102","product_id":"P106","quantity":1,"unit_price":"49.00","gross_amount":"49.00","order_date":"2026-10-15","currency":"USD"}
+{"order_line_id":"OL-1004-1","order_id":"ORD-1004","customer_id":"C104","product_id":"P107","quantity":1,"unit_price":"89.00","gross_amount":"89.00","order_date":"2026-10-16","currency":"USD"}
+{"order_line_id":"OL-1005-1","order_id":"ORD-1005","customer_id":"C103","product_id":"P105","quantity":3,"unit_price":"12.50","gross_amount":"37.50","order_date":"2026-10-16","currency":"USD"}
+{"order_line_id":"OL-1006-1","order_id":"ORD-1006","customer_id":"C105","product_id":"P102","quantity":1,"unit_price":"729.00","gross_amount":"729.00","order_date":"2026-10-16","currency":"USD"}
+{"order_line_id":"OL-1007-1","order_id":"ORD-1007","customer_id":"C100","product_id":"P108","quantity":2,"unit_price":"24.00","gross_amount":"48.00","order_date":"2026-10-17","currency":"USD"}
+{"order_line_id":"OL-1008-1","order_id":"ORD-1008","customer_id":"C106","product_id":"P109","quantity":1,"unit_price":"16.00","gross_amount":"16.00","order_date":"2026-10-17","currency":"USD"}
+{"order_line_id":"OL-1009-1","order_id":"ORD-1009","customer_id":"C107","product_id":"P104","quantity":4,"unit_price":"19.00","gross_amount":"76.00","order_date":"2026-10-17","currency":"USD"}
+{"order_line_id":"OL-1010-1","order_id":"ORD-1010","customer_id":"C102","product_id":"P101","quantity":1,"unit_price":"749.00","gross_amount":"749.00","order_date":"2026-10-18","currency":"USD"}

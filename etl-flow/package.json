@@ -1,0 +1,9 @@
+{
+  "name": "etl-flow",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "install:ui": "npm install --prefix frontend"
+  }
+}
